@@ -1,18 +1,21 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+// import Button from './components/Button.tsx';
+// const [count, setCount] = useState(0);
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage.tsx';
+import HomePage from './pages/HomePage.tsx';
+import TasksPage from './pages/TasksPage.tsx';
 import './App.css';
-import Button from './components/Button.tsx';
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Hello world</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <Button />
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/tasks" element={<TasksPage />} />
+        </Routes>
+      </Router>
     </>
   );
 }
